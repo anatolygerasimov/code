@@ -20,7 +20,7 @@
         "paths": [
           "/app/Containers",
           "/config",
-          "/database",
+          "/database"
         ],
         "skip": [
           "/bootstrap",
@@ -29,7 +29,7 @@
           "/node_modules",
           "/public",
           "/storage",
-          "/vendor",        
+          "/vendor"        
         ]
       }
     }
@@ -48,7 +48,7 @@
       "./vendor/bin/php-cs-fixer fix --config=./vendor/anatolygerasimov/code/configs/.php_cs.dist.php --allow-risky=yes --using-cache=no"
     ],
     "php-cs-fixer-check": [
-      "./vendor/bin/php-cs-fixer fix --dry-run --config=./vendor/anatolygerasimov/code/configs/.php_cs.dist.php --diff --diff-format=udiff -vv --allow-risky=yes --using-cache=no"
+      "./vendor/bin/php-cs-fixer fix --dry-run --config=./vendor/anatolygerasimov/code/configs/.php_cs.dist.php --diff -vv --allow-risky=yes --using-cache=no"
     ]
   }
   ```
