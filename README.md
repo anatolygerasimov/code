@@ -1,7 +1,7 @@
 ### Usage ###
 - ```$ composer require anatolygerasimov/code --dev```
 - add folder configuration for ```composer.json```
-  ```
+  ```json
   "extra": {
     "code": {
       "rector": {
@@ -19,8 +19,23 @@
     }
   }
   ```
-- ```$ ./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache```
-- ```$ ./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache --dry-run```
+- ```bash
+  $ ./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache
+  ```
+- ```bash
+  $ ./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache --dry-run
+  ```
+- ```composer.json```
+  ```json
+  "scripts": {
+    "rector": [
+      "./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache"
+    ],
+    "rector-check": [
+      "./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache --dry-run"
+    ]
+  }
+  ```
 
 ### TODO: ###
 - ```"friendsofphp/php-cs-fixer": "^2.18"```
