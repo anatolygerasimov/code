@@ -18,8 +18,8 @@
     }
   }
   ```
-- ```$ ./vendor/bin/rector process --config=./configs/rector.php  --clear-cache```
-- ```$ ./vendor/bin/rector process --config=./configs/rector.php  --clear-cache --dry-run```
+- ```$ ./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache```
+- ```$ ./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache --dry-run```
 
 ### TODO: ###
 - ```"friendsofphp/php-cs-fixer": "^2.18"```
