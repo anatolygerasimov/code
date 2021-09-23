@@ -15,15 +15,25 @@
           "/app/Containers/*/Data/Criterias/*",
           "/app/Containers/*/Routes/*"
         ]
+      },
+      "cs-fixer": {
+        "paths": [
+          "/app/Containers",
+          "/config",
+          "/database",
+        ],
+        "skip": [
+          "/bootstrap",
+          "/public",
+          "/resources",
+          "/node_modules",
+          "/public",
+          "/storage",
+          "/vendor",        
+        ]
       }
     }
   }
-  ```
-- ```bash
-  $ ./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache
-  ```
-- ```bash
-  $ ./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache --dry-run
   ```
 - ```composer.json```
   ```json
@@ -33,6 +43,12 @@
     ],
     "rector-check": [
       "./vendor/bin/rector process --config=./vendor/anatolygerasimov/code/configs/rector.php  --clear-cache --dry-run"
+    ],
+    "php-cs-fixer": [
+      "./vendor/bin/php-cs-fixer fix --config=./vendor/anatolygerasimov/code/configs/.php_cs.dist.php --allow-risky=yes --using-cache=no"
+    ],
+    "php-cs-fixer-check": [
+      "./vendor/bin/php-cs-fixer fix --dry-run --config=./vendor/anatolygerasimov/code/configs/.php_cs.dist.php --diff --diff-format=udiff -vv --allow-risky=yes --using-cache=no"
     ]
   }
   ```
