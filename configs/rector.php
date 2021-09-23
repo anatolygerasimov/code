@@ -10,6 +10,8 @@ use Rector\Php74\Rector\Property\TypedPropertyRector;
 use Rector\Set\ValueObject\SetList;
 use Rector\TypeDeclaration\Rector\Property\PropertyTypeDeclarationRector;
 use Rector\DowngradePhp70\Rector\GroupUse\SplitGroupedUseImportsRector;
+use Rector\CodeQuality\Rector\ClassMethod\DateTimeToDateTimeInterfaceRector;
+use Rector\CodeQuality\Rector\Identical\FlipTypeControlToUseExclusiveTypeRector;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Code\ComposerLoader;
 
@@ -23,14 +25,17 @@ return static function (ContainerConfigurator $containerConfigurator): void {
     $parameters->set(Option::PATHS, $composerLoader->getAbsolutePaths('rector.paths'));
 
     // These are the files to be skipped
-    $parameters->set(Option::SKIP, $composerLoader->getAbsolutePaths('rector.skip') + [
+    $parameters->set(Option::SKIP, array_merge($composerLoader->getAbsolutePaths('rector.skip'), [
             RestoreDefaultNullToNullableTypePropertyRector::class, // don't work with DTO nullable parameter
             RemoveExtraParametersRector::class, // catting an argument in dump() function
             SplitGroupedUseImportsRector::class, // doesn't work with insteadof resolve naming conflicts between Traits
 //            CamelCaseFunctionNamingToUnderscoreRector::class, // it's change helpers
             UnSpreadOperatorRector::class, // it's breaks the middleware
             CountOnNullRector::class, // this rule does not fit, a lot of where it goes wrong
-    ]);
+            //THINKING
+            DateTimeToDateTimeInterfaceRector::class,
+            FlipTypeControlToUseExclusiveTypeRector::class
+    ]));
 
     $containerConfigurator->import(SetList::PHP_70);
     $containerConfigurator->import(SetList::PHP_71);
