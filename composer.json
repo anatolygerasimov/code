@@ -18,8 +18,6 @@
       }
     }
   },
-  "require": {
-  },
   "autoload": {
     "psr-4": {
       "Code\\": "src/"
