@@ -54,6 +54,5 @@
   ```
 
 ### TODO: ###
-- ```"friendsofphp/php-cs-fixer": "^2.18"```
 - ```"vimeo/psalm": "^4.6"```
 - runner for this tools
