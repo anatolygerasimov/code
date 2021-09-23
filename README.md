@@ -12,7 +12,8 @@
           "/app/Ship/Migrations/*",
           "/app/Ship/Core/*",
           "/app/Containers/*/Data/Migrations/*",
-          "/app/Containers/*/Data/Criterias/*"
+          "/app/Containers/*/Data/Criterias/*",
+          "/app/Containers/*/Routes/*"
         ]
       }
     }
