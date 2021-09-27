@@ -3,7 +3,9 @@
 declare(strict_types=1);
 
 use Rector\CodingStyle\Rector\ClassMethod\UnSpreadOperatorRector;
+use Rector\CodingStyle\Rector\PostInc\PostIncDecToPreIncDecRector;
 use Rector\Core\Configuration\Option;
+use Rector\Php71\Rector\FuncCall\CountOnNullRector;
 use Rector\Php71\Rector\FuncCall\RemoveExtraParametersRector;
 use Rector\Php74\Rector\Property\RestoreDefaultNullToNullableTypePropertyRector;
 use Rector\Php74\Rector\Property\TypedPropertyRector;
@@ -34,7 +36,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
             CountOnNullRector::class, // this rule does not fit, a lot of where it goes wrong
             //THINKING
             DateTimeToDateTimeInterfaceRector::class,
-            FlipTypeControlToUseExclusiveTypeRector::class
+            FlipTypeControlToUseExclusiveTypeRector::class,
+            PostIncDecToPreIncDecRector::class
     ]));
 
     $containerConfigurator->import(SetList::PHP_70);
