@@ -10,7 +10,7 @@ $options = getopt('c:t:', ['config:', 'target:']);
 $target = $options['target'];
 
 $composerLoader  = new ComposerLoader();
-$psalmConfigFile = file_get_contents('./configs/psalm_default.xml');
+$psalmConfigFile = file_get_contents(__DIR__ . '/../configs/psalm_default.xml');
 $psalmConfig     = new SimpleXMLElement($psalmConfigFile);
 
 setUpPath();
