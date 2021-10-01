@@ -67,7 +67,7 @@
       "./vendor/bin/php-cs-fixer fix --dry-run --config=./vendor/anatolygerasimov/code/configs/.php_cs.dist.php --diff -vv --allow-risky=yes --using-cache=no"
     ],
     "psalm": [
-      "php src/psalm_config.php --target=./psalm.xml",
+      "php ./vendor/anatolygerasimov/code/src/psalm_config.php --target=./psalm.xml",
       "./vendor/bin/psalm --threads=4 --no-cache --config=./psalm.xml",
       "rm ./psalm.xml"
     ]
