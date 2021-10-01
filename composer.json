@@ -26,6 +26,16 @@
         "skip": [
 
         ]
+      },
+      "psalm": {
+        "paths": [
+          "/src"
+        ],
+        "skip": [
+          "/vendor"
+        ],
+        "config": {
+        }
       }
     }
   },
@@ -41,7 +51,10 @@
   },
   "require": {
     "rector/rector": "^0.11.53",
-    "friendsofphp/php-cs-fixer": "3.*"
+    "friendsofphp/php-cs-fixer": "3.*",
+    "vimeo/psalm": "^4.10",
+    "ext-simplexml": "*",
+    "ext-dom": "*"
   },
   "scripts": {
     "rector": [
@@ -55,6 +68,11 @@
     ],
     "php-cs-fixer-check": [
       "./vendor/bin/php-cs-fixer fix --dry-run --config=./configs/.php_cs.dist.php --diff -vv --allow-risky=yes --using-cache=no"
+    ],
+    "psalm": [
+      "php src/psalm_config.php --config=./configs/psalm.php --target=./psalm.xml",
+      "./vendor/bin/psalm --threads=4 --no-cache --config=./psalm.xml",
+      "rm ./psalm.xml"
     ]
   }
 }
