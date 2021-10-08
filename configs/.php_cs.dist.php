@@ -73,7 +73,7 @@ return $config
         'ordered_imports'                             => ['imports_order' => ['class', 'function', 'const'], 'sort_algorithm' => 'alpha'], //rewrite psr-12 rule
         'no_unused_imports'                           => true,
         'fully_qualified_strict_types'                => true,
-        'native_function_invocation'                  => false,  // thinking about it
+        'native_function_invocation'                  => ['include' => ['@compiler_optimized'], 'scope' => 'namespaced', 'strict' => true],
 
         // Spacing/New Lines:
         'concat_space'                                => ['spacing' => 'one'],
