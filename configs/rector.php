@@ -15,6 +15,7 @@ use Rector\DowngradePhp70\Rector\GroupUse\SplitGroupedUseImportsRector;
 use Rector\CodeQuality\Rector\ClassMethod\DateTimeToDateTimeInterfaceRector;
 use Rector\CodeQuality\Rector\Identical\FlipTypeControlToUseExclusiveTypeRector;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Rector\CodeQuality\Rector\PropertyFetch\ExplicitMethodCallOverMagicGetSetRector;
 use Code\ComposerLoader;
 
 return static function (ContainerConfigurator $containerConfigurator): void {
@@ -28,16 +29,17 @@ return static function (ContainerConfigurator $containerConfigurator): void {
 
     // These are the files to be skipped
     $parameters->set(Option::SKIP, array_merge($composerLoader->getAbsolutePaths('rector.skip'), [
-            RestoreDefaultNullToNullableTypePropertyRector::class, // don't work with DTO nullable parameter
-            RemoveExtraParametersRector::class, // catting an argument in dump() function
-            SplitGroupedUseImportsRector::class, // doesn't work with insteadof resolve naming conflicts between Traits
-//            CamelCaseFunctionNamingToUnderscoreRector::class, // it's change helpers
-            UnSpreadOperatorRector::class, // it's breaks the middleware
-            CountOnNullRector::class, // this rule does not fit, a lot of where it goes wrong
-            //THINKING
-            DateTimeToDateTimeInterfaceRector::class,
-            FlipTypeControlToUseExclusiveTypeRector::class,
-            PostIncDecToPreIncDecRector::class
+        RestoreDefaultNullToNullableTypePropertyRector::class, // don't work with DTO nullable parameter
+        RemoveExtraParametersRector::class, // catting an argument in dump() function
+        SplitGroupedUseImportsRector::class, // doesn't work with insteadof resolve naming conflicts between Traits
+//      CamelCaseFunctionNamingToUnderscoreRector::class, // it's change helpers
+        UnSpreadOperatorRector::class, // it's breaks the middleware
+        CountOnNullRector::class, // this rule does not fit, a lot of where it goes wrong
+        ExplicitMethodCallOverMagicGetSetRector::class,
+        //THINKING
+        DateTimeToDateTimeInterfaceRector::class,
+        FlipTypeControlToUseExclusiveTypeRector::class,
+        PostIncDecToPreIncDecRector::class,
     ]));
 
     $containerConfigurator->import(SetList::PHP_70);
