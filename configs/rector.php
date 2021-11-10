@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Rector\CodingStyle\Rector\ClassMethod\MakeInheritedMethodVisibilitySameAsParentRector;
 use Rector\CodingStyle\Rector\ClassMethod\UnSpreadOperatorRector;
 use Rector\CodingStyle\Rector\PostInc\PostIncDecToPreIncDecRector;
 use Rector\Core\Configuration\Option;
@@ -40,6 +41,8 @@ return static function (ContainerConfigurator $containerConfigurator): void {
         DateTimeToDateTimeInterfaceRector::class,
         FlipTypeControlToUseExclusiveTypeRector::class,
         PostIncDecToPreIncDecRector::class,
+        //WAITING FIX
+        MakeInheritedMethodVisibilitySameAsParentRector::class
     ]));
 
     $containerConfigurator->import(SetList::PHP_70);

@@ -8,7 +8,6 @@ use Exception;
 use function explode;
 use function file_exists;
 use function file_get_contents;
-use function is_array;
 use function json_decode;
 
 class ComposerLoader
@@ -43,7 +42,7 @@ class ComposerLoader
         $keys  = explode('.', $key);
         $array = $this->config;
         foreach ($keys as $key) {
-            if (is_array($array) && isset($array[$key])) {
+            if (\is_array($array) && isset($array[$key])) {
                 $array = $array[$key];
             } else {
                 return $default;
