@@ -25,7 +25,6 @@
         ],
         "skip": [
           "/bootstrap",
-          "/public",
           "/resources",
           "/node_modules",
           "/public",
