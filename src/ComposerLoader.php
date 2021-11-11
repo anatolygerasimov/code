@@ -57,6 +57,6 @@ class ComposerLoader
         $paths = $this->get($key, $default);
         $root  = $this->composerDir;
 
-        return array_map(static fn ($path) => $root . $path, (array)$paths);
+        return array_map(static fn ($path): string => $root . $path, (array)$paths);
     }
 }

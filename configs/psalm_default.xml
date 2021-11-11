@@ -4,16 +4,19 @@
     <ignoreFiles>
     </ignoreFiles>
   </projectFiles>
+
   <issueHandlers>
     <MissingPropertyType errorLevel="error"/>
     <UndefinedMethod errorLevel="error"/>
     <UndefinedClass errorLevel="error"/>
     <PropertyNotSetInConstructor errorLevel="suppress"/>
     <UndefinedGlobalVariable errorLevel="error"/>
+
     <!-- Return -->
     <InvalidNullableReturnType errorLevel="error"/>
     <MissingReturnType errorLevel="error"/>
     <InvalidReturnType errorLevel="error"/>
+
     <!-- Phpdocs -->
     <DocblockTypeContradiction errorLevel="error"/>
     <InvalidDocblock errorLevel="error"/>
@@ -40,7 +43,7 @@
     <DeprecatedConstant errorLevel="error"/>
     <DeprecatedFunction errorLevel="error"/>
     <DeprecatedInterface errorLevel="error"/>
-    <DeprecatedMethod errorLevel="error"/>
+    <DeprecatedMethod errorLevel="info"/>
     <DeprecatedProperty errorLevel="error"/>
     <DeprecatedTrait errorLevel="error"/>
     <!-- ALL -->

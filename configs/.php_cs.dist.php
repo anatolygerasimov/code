@@ -38,11 +38,11 @@ return $config
         'simplified_null_return'                      => false, // disabled by Shift
         'standardize_not_equals'                      => true,
         'simple_to_complex_string_variable'           => true,
-        'declare_strict_types'                        => false, // thinking about it
+        'declare_strict_types'                        => true, // thinking about it
         'void_return'                                 => false, // thinking about it
         'is_null'                                     => false, // thinking about it
         'strict_comparison'                           => true,
-        'strict_param'                                => false, // thinking about it
+        'strict_param'                                => true, // https://mlocati.github.io/php-cs-fixer-configurator/#version:3.2|fixer:strict_param
         'ordered_traits'                              => true,
 
         // Disabled for any Global rules
@@ -81,16 +81,10 @@ return $config
         'unary_operator_spaces'                       => false,
         'linebreak_after_opening_tag'                 => true,
         'blank_line_after_opening_tag'                => true,
-        'binary_operator_spaces'                      => [
-            'default'   => 'align_single_space',
-        ],
-        'blank_line_before_statement'                 => [
-            'statements' => ['return', 'do', 'exit', 'if', 'switch', 'try'],
-        ],
-        'no_extra_blank_lines'                        => [
-            'tokens' => ['extra', 'throw', 'use', 'use_trait'],
-        ],
-        'class_attributes_separation'                 => true,
+        'binary_operator_spaces'                      => ['default'   => 'align_single_space'],
+        'blank_line_before_statement'                 => ['statements' => ['return', 'do', 'exit', 'if', 'switch', 'try']],
+        'no_extra_blank_lines'                        => ['tokens' => ['extra', 'throw', 'use']],
+        'class_attributes_separation'                 => ['elements' => ['const' => 'one','method' => 'one','property' => 'one','trait_import' => 'none']],
         'function_typehint_space'                     => true,
         'include'                                     => true,
         'no_blank_lines_after_phpdoc'                 => true,
@@ -116,12 +110,8 @@ return $config
         'array_indentation'                           => true,
 
         // Comments:
-        'align_multiline_comment'                     => [
-            'comment_type' => 'phpdocs_like',
-        ],
-        'single_line_comment_style'                   => [
-            'comment_types' => ['hash'],
-        ],
+        'align_multiline_comment'                     => ['comment_type' => 'phpdocs_like'],
+        'single_line_comment_style'                   => ['comment_types' => ['hash']],
 
         // PhpDocs:
         'phpdoc_to_comment'                           => false,
@@ -137,6 +127,6 @@ return $config
         'phpdoc_types'                                => true,
         'phpdoc_var_without_name'                     => true,
         'phpdoc_separation'                           => true,
-        'phpdoc_align'                                => true,
+        'phpdoc_align'                                => ['align' => 'vertical', 'tags' => ['param', 'property', 'property-read', 'property-write', 'return', 'throws', 'type', 'var', 'method'],],
         'no_superfluous_phpdoc_tags'                  => true, // thinking about it
     ])->setFinder($finder);
