@@ -54,8 +54,7 @@
     "friendsofphp/php-cs-fixer": "^3.2.1",
     "vimeo/psalm": "^4.12.0",
     "ext-simplexml": "*",
-    "ext-dom": "*",
-    "sentry/sdk": "^3.1"
+    "ext-dom": "*"
   },
   "scripts": {
     "rector": [
